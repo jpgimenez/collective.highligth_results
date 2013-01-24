@@ -40,9 +40,14 @@ setup(name='collective.highlighted_results',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'plone.app.dexterity',
       ],
-      extras_require={'test': ['plone.app.testing']},
+      extras_require={'test': [
+                          'plone.app.testing',
+                          'robotsuite',
+                          'robotframework-selenium2library',
+                          ],
+                      },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]

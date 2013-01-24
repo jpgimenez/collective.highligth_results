@@ -1,11 +1,18 @@
+import urllib2
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import applyProfile
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
+from plone.app.testing import FunctionalTesting
 
 from plone.testing import z2
 
 from zope.configuration import xmlconfig
+
+
+def generate_jpeg(width, height):
+    url = 'http://lorempixel.com/%d/%d/' % (width, height)
+    return urllib2.urlopen(url).read()
 
 
 class Collectivehighlighted_ResultsLayer(PloneSandboxLayer):
@@ -17,15 +24,21 @@ class Collectivehighlighted_ResultsLayer(PloneSandboxLayer):
         import collective.highlighted_results
         xmlconfig.file('configure.zcml', collective.highlighted_results, context=configurationContext)
 
-        # Install products that use an old-style initialize() function
-        #z2.installProduct(app, 'Products.PloneFormGen')
-
-#    def tearDownZope(self, app):
-#        # Uninstall products installed above
-#        z2.uninstallProduct(app, 'Products.PloneFormGen')
-
     def setUpPloneSite(self, portal):
+        self['portal'] = portal
+        roles = ('Member', 'Manager')
+        portal.portal_membership.addMember('manager', 'secret', roles, [])
+        roles = ('Member', 'Contributor')
+        portal.portal_membership.addMember('contributor', 'secret', roles, [])
         applyProfile(portal, 'collective.highlighted_results:default')
+        applyProfile(portal, 'collective.highlighted_results:testfixture')
+        portal['my-image'].setImage(generate_jpeg(100, 100))
+        portal['my-file'].setFile(generate_jpeg(100, 100))
+
 
 COLLECTIVE_HIGHLIGHTED_RESULTS_FIXTURE = Collectivehighlighted_ResultsLayer()
-COLLECTIVE_HIGHLIGHTED_RESULTS_INTEGRATION_TESTING = IntegrationTesting(bases=(COLLECTIVE_HIGHLIGHTED_RESULTS_FIXTURE,), name="Collectivehighlighted_ResultsLayer:Integration")
+INTEGRATION_TESTING = IntegrationTesting(bases=(COLLECTIVE_HIGHLIGHTED_RESULTS_FIXTURE,),
+                                         name="collective.highlighted_results:Integration")
+FUNCTIONAL_TESTING = FunctionalTesting(bases=(COLLECTIVE_HIGHLIGHTED_RESULTS_FIXTURE,
+                                              z2.ZSERVER_FIXTURE),
+                                       name="collective.highlighted_results:Functional")

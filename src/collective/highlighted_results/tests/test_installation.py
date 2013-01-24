@@ -2,13 +2,12 @@ import unittest2 as unittest
 
 from Products.CMFCore.utils import getToolByName
 
-from collective.highlighted_results.testing import \
-    COLLECTIVE_HIGHLIGHTED_RESULTS_INTEGRATION_TESTING
+from collective.highlighted_results.testing import INTEGRATION_TESTING
 
 
-class TestExample(unittest.TestCase):
+class TestInstallation(unittest.TestCase):
 
-    layer = COLLECTIVE_HIGHLIGHTED_RESULTS_INTEGRATION_TESTING
+    layer = INTEGRATION_TESTING
 
     def setUp(self):
         self.app = self.layer['app']
@@ -23,3 +22,12 @@ class TestExample(unittest.TestCase):
         installed = [p['id'] for p in self.qi_tool.listInstalledProducts()]
         self.assertTrue(pid in installed,
                         'package appears not to have been installed')
+
+    def test_dexterity_is_installed(self):
+        """ Validate that our products GS profile has been run and the product
+            installed
+        """
+        pid = 'plone.app.dexterity'
+        installed = [p['id'] for p in self.qi_tool.listInstalledProducts()]
+        self.assertTrue(pid in installed,
+                        'dexterity appears not to have been installed')

@@ -28,3 +28,4 @@ lib/
 parts/
 src/collective.behavior.localregistry/
 var/
+src/plone.*
