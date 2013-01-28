@@ -60,7 +60,7 @@ class Ird(form.Schema):
         )
 
     # Imagen: ídem Título.
-    picture = NamedImage(
+    image = NamedImage(
             title=_(u"Image"),
             required=False,
         )    
@@ -87,8 +87,8 @@ class Ird(form.Schema):
 
     @invariant
     def validateTargetOrTitle(data):
-        if not data.target and not data.title:
-            raise TargetOrTitle(_(u"The RD should have a target or a title."))
+        if not data.target and not (data.title and data.link):
+            raise TargetOrTitle(_(u"The RD should have a target or a title+link."))
 
 
 @indexer(Ird)
@@ -99,3 +99,7 @@ def ExpirationDateIndexer(obj):
 @indexer(Ird)
 def searchableIndexer(context):
     return context.keywords
+
+@indexer(Ird)
+def getRemoteUrl(context):
+    return data.link and data.link or data.target.absolute_url()

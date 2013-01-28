@@ -37,5 +37,6 @@
   <adapter name="ExpirationDate" factory=".content.ExpirationDateIndexer" />
   <adapter name="expires" factory=".content.ExpirationDateIndexer" />
   <adapter name="SearchableText" factory=".content.searchableIndexer" />
+  <adapter name="has_image" factory=".content.has_image" />
   
 </configure>

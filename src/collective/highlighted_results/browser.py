@@ -28,7 +28,6 @@ class Search(BaseSearch):
     """
 
     def getHighlights(self, query=None):
-        import ipdb;ipdb.set_trace()
         if query is None:
             query = {}
         query = self.filter_query(query)
