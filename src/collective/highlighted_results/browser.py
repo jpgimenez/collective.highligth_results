@@ -28,6 +28,7 @@ class Search(BaseSearch):
     """
 
     def getHighlights(self, query=None):
+        import ipdb;ipdb.set_trace()
         if query is None:
             query = {}
         query = self.filter_query(query)
@@ -38,6 +39,6 @@ class Search(BaseSearch):
             query['SearchableText'] = ' OR '.join(splitter.findall(query['SearchableText']))
         query['portal_type'] = ['rd']
         query['show_inactive'] = True
-        
+
         catalog = getToolByName(self.context, 'portal_catalog')
         return catalog(query)

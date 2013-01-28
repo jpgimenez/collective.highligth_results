@@ -34,7 +34,8 @@
       layer=".interfaces.ICollectiveHighlightedResultsLayer"
       />
 
-  <adapter name="ExpirationDate" factory=".content.ExpirationDate" />
-  <adapter name="expires" factory=".content.ExpirationDate" />
+  <adapter name="ExpirationDate" factory=".content.ExpirationDateIndexer" />
+  <adapter name="expires" factory=".content.ExpirationDateIndexer" />
+  <adapter name="SearchableText" factory=".content.searchableIndexer" />
   
 </configure>

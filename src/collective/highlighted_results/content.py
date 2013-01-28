@@ -92,5 +92,10 @@ class Ird(form.Schema):
 
 
 @indexer(Ird)
-def ExpirationDate(obj):
+def ExpirationDateIndexer(obj):
     return DateTime()
+
+
+@indexer(Ird)
+def searchableIndexer(context):
+    return context.keywords

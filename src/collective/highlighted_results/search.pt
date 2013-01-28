@@ -314,7 +314,7 @@
                                                    show_about python:not isAnon or allowAnonymousViewAbout;">
                           <dl class="searchResults">
                               <tal:results repeat="item batch">
-                                    <dt tal:attributes="class item/ContentTypeClass">
+                                    <dt tal:attributes="class item/portal_type">
                                       <img tal:replace="structure item/getIcon" />
                                       <a href="#"
                                          tal:define="item_url item/getURL;
@@ -330,7 +330,7 @@
                                             i18n:translate="label_by_author">
                                         by
                                             <tal:block tal:condition="item/Creator"
-                                                tal:define="author python:context.portal_membership.getMemberInfo(item.Creator())">
+                                                tal:define="author python:context.portal_membership.getMemberInfo(item.Creator)">
                                               <a href="#"
                                                  tal:attributes="href string:$navigation_root_url/author/${item/Creator}"
                                                  tal:content="python:author and author['fullname'] or item.Creator()"
@@ -381,7 +381,7 @@
                                           </span>
                                         </span>
                                       </span>
-                                      <div tal:content="item/CroppedDescription">
+                                      <div tal:content="item/Description">
                                         Cropped description
                                       </div>
 
