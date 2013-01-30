@@ -28,7 +28,7 @@ class Ird(form.Schema):
 
     # Destino: opcional. Será un campo del tipo "Contenidos relacionados"
     #          pero se podrá elegir un único contenido.
-    target = RelationChoice(title=u"Target",
+    target = RelationChoice(title=_(u"Target"),
                             source=ObjPathSourceBinder(),
                             required=False,
                             )
@@ -65,13 +65,6 @@ class Ird(form.Schema):
             required=False,
         )    
 
-    # Comentarios: internos, deberían mostrarse en el área de configuración de RD.
-    comments = schema.Text(
-        title=_(u'label_comments', default=u'Comments'),
-        required = False,
-        missing_value = u'',
-        )
-
     # Palabras clave: campo de libre llenado para ingresar varios términos que,
     #                 al ser buscados por un usuario, provocarán que este RD aparezca.
     keywords = schema.Text(
@@ -83,7 +76,15 @@ class Ird(form.Schema):
     # Habilitado: Sí/No. Para controlar si debe o no aparecer el RD.
     enabled = schema.Bool(
         title=_(u"Enabled"),
+        default = True,
     )
+
+    # Comentarios: internos, deberían mostrarse en el área de configuración de RD.
+    comments = schema.Text(
+        title=_(u'label_comments', default=u'Comments'),
+        required = False,
+        missing_value = u'',
+        )
 
     @invariant
     def validateTargetOrTitle(data):

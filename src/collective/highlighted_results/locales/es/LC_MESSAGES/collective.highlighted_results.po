@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-01-30 17:20+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./content.py:78
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: ./content.py:64
+msgid "Image"
+msgstr "Imagen"
+
+#: ./content.py:31
+msgid "Target"
+msgstr "Destino del resultado"
+
+#: ./content.py:91
+msgid "The RD should have a target or a title+link."
+msgstr "El 'Resultado Destacado' debe tener un destino o Título+URL"
+
+#: ./backward_search.py:123
+msgid "alphabetically"
+msgstr ""
+
+#: ./backward_search.py:121
+msgid "date (newest first)"
+msgstr ""
+
+#. Default: "Comments"
+#: ./content.py:83
+msgid "label_comments"
+msgstr "Comentarios internos"
+
+#. Default: "Keywords"
+#: ./content.py:71
+msgid "label_keywords"
+msgstr "Palabras clave"
+
+#. Default: "Link"
+#: ./content.py:58
+msgid "label_link"
+msgstr "URL"
+
+#: ./backward_search.py:120
+msgid "relevance"
+msgstr ""
+
