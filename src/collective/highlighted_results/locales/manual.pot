@@ -19,3 +19,7 @@ msgstr ""
 
 msgid "Target"
 msgstr ""
+
+msgid "Highlighted result"
+msgstr ""
+

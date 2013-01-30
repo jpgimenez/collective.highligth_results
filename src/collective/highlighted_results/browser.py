@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import re
-from DateTime import DateTime
-from Acquisition import aq_parent
 
 try:
     from plone.app.search import browser
@@ -10,17 +8,12 @@ try:
     quote_chars = browser.quote_chars
     EVER = browser.EVER
 except:
-    from collective.highlighted_results.backward_search import Search as BaseSearch
-    from collective.highlighted_results.backward_search import quote_chars
-    from collective.highlighted_results.backward_search import EVER
+    from collective.highlighted_results import backward_search
+    BaseSearch = backward_search.Search
+    quote_chars = backward_search.quote_chars
+    EVER = backward_search.EVER
 
-from plone.z3cform import layout
-from plone.app.registry.browser.controlpanel import RegistryEditForm
-from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.browser.navtree import getNavigationRoot
-from Products.CMFPlone.PloneBatch import Batch
-from Products.ZCTextIndex.ParseTree import ParseError
 
 
 class Search(BaseSearch):
@@ -41,7 +34,7 @@ class Search(BaseSearch):
         query['portal_type'] = ['rd']
         query['inactive'] = False
         query.pop('show_inactive')
-        
+
         catalog = getToolByName(self.context, 'portal_catalog')
-        return [i for i in catalog.queryCatalog(query, show_all=1, show_inactive=1) \
+        return [i for i in catalog.queryCatalog(query, show_all=1, show_inactive=1)
                 if not i.inactive]

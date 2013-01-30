@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-30 17:20+0000\n"
+"POT-Creation-Date: 2013-01-30 20:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,26 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.highlighted_results\n"
 
-#: ./content.py:78
+#: ./content.py:22
+msgid "(nothing)"
+msgstr ""
+
+#: ./content.py:85
 msgid "Enabled"
 msgstr ""
 
-#: ./content.py:64
+msgid "Highlighted result"
+msgstr ""
+
+#: ./content.py:71
 msgid "Image"
 msgstr ""
 
-#: ./content.py:31
+#: ./content.py:36
 msgid "Target"
 msgstr ""
 
-#: ./content.py:91
+#: ./content.py:99
 msgid "The RD should have a target or a title+link."
 msgstr ""
 
@@ -42,17 +49,17 @@ msgid "date (newest first)"
 msgstr ""
 
 #. Default: "Comments"
-#: ./content.py:83
+#: ./content.py:91
 msgid "label_comments"
 msgstr ""
 
 #. Default: "Keywords"
-#: ./content.py:71
+#: ./content.py:78
 msgid "label_keywords"
 msgstr ""
 
 #. Default: "Link"
-#: ./content.py:58
+#: ./content.py:65
 msgid "label_link"
 msgstr ""
 

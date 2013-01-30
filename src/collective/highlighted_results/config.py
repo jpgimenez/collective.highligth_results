@@ -7,6 +7,3 @@ PROJECTNAME = 'collective.highlighted_results'
 
 
 _ = MessageFactory(PROJECTNAME)
-
-
-

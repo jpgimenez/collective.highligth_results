@@ -3,8 +3,7 @@ import unittest2 as unittest
 from Products.CMFCore.utils import getToolByName
 
 from collective.highlighted_results.testing import INTEGRATION_TESTING
-from plone.app.testing import login
-    
+
 
 class TestContent(unittest.TestCase):
 
@@ -16,11 +15,11 @@ class TestContent(unittest.TestCase):
         self.portal_types = getToolByName(self.portal, 'portal_types')
 
     def test_search_with(self):
-        """ 
+        """
         """
         pass
 
     def test_search_without(self):
-        """ 
+        """
         """
         pass
