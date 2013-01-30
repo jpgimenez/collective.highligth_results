@@ -31,13 +31,17 @@ class Search(BaseSearch):
         if query is None:
             query = {}
         query = self.filter_query(query)
+        if not query:
+            return []
 
         # Turn the query into an OR query
         if 'SearchableText' in query:
             splitter = re.compile("[^\\s\"']+|\"[^\"]*\"|'[^']*'")
             query['SearchableText'] = ' OR '.join(splitter.findall(query['SearchableText']))
         query['portal_type'] = ['rd']
-        query['show_inactive'] = True
-
+        query['inactive'] = False
+        query.pop('show_inactive')
+        
         catalog = getToolByName(self.context, 'portal_catalog')
-        return catalog(query)
+        return [i for i in catalog.queryCatalog(query, show_all=1, show_inactive=1) \
+                if not i.inactive]

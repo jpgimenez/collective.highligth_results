@@ -38,5 +38,8 @@
   <adapter name="expires" factory=".content.ExpirationDateIndexer" />
   <adapter name="SearchableText" factory=".content.searchableIndexer" />
   <adapter name="has_image" factory=".content.has_image" />
+  <adapter name="getRemoteUrl" factory=".content.getRemoteUrl" />
+  <adapter name="Title" factory=".content.Title" />
+  <adapter name="inactive" factory=".content.inactive" />
   
 </configure>

@@ -100,6 +100,22 @@ def ExpirationDateIndexer(obj):
 def searchableIndexer(context):
     return context.keywords
 
+
+@indexer(Ird)
+def has_image(context):
+    return bool(context.image)
+
+
 @indexer(Ird)
 def getRemoteUrl(context):
-    return data.link and data.link or data.target.absolute_url()
+    return context.link and context.link or context.target.to_object.absolute_url()
+
+
+@indexer(Ird)
+def Title(context):
+    return context.title and context.title or context.target.to_object.Title()
+
+
+@indexer(Ird)
+def inactive(context):
+    return not bool(context.enabled)
