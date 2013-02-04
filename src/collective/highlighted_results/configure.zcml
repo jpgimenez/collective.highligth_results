@@ -31,7 +31,16 @@
       class=".browser.Search"
       permission="zope2.View"
       for="*"
-      template="search.pt"
+      template="templates/search.pt"
+      layer=".interfaces.ICollectiveHighlightedResultsLayer"
+      />
+
+  <browser:page
+      name="view"
+      class=".browser.View"
+      permission="zope2.View"
+      for=".content.Ird"
+      template="templates/view.pt"
       layer=".interfaces.ICollectiveHighlightedResultsLayer"
       />
 
@@ -43,4 +52,13 @@
   <adapter name="Title" factory=".content.Title" />
   <adapter name="inactive" factory=".content.inactive" />
   
+  <!-- Render the browser title -->
+  <browser:viewlet
+      name="plone.htmlhead.title"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+      class=".browser.TitleViewlet"
+      permission="zope2.View" 
+      for=".content.Ird"
+      />
+
 </configure>

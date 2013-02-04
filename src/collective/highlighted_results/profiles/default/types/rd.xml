@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<object name="rd" meta_type="Dexterity FTI" i18n:domain="plone"
+<object name="rd" meta_type="Dexterity FTI"
+   i18n:domain="collective.highlighted_results"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title" i18n:translate="">Highlighted result</property>
  <property name="description" i18n:translate=""></property>
