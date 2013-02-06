@@ -61,4 +61,9 @@
       for=".content.Ird"
       />
 
+  <browser:resourceDirectory
+      name="collective.highlighted_results"
+      directory="static"
+      />
+
 </configure>

@@ -3,6 +3,8 @@
    i18n:domain="collective.highlighted_results"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title" i18n:translate="">Highlighted result</property>
+ <property
+    name="content_icon">++resource++collective.highlighted_results/magnifier-zoom-in-icon.png</property>
  <property name="description" i18n:translate=""></property>
  <property name="factory">rd</property>
  <property name="immediate_view">view</property>
